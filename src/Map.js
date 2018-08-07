@@ -1,17 +1,41 @@
 import React, { Component } from 'react';
-import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
-import Location from './Location';
-import LocationMarker from './LocationMarker';
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
+import { locations } from './Location';
 
 class Map extends Component {
+
+  state = {
+    locations: locations,
+    venues: [],
+    selectedVenue: null
+  }
+
   render () {
 
     const CopenhagenMap = withScriptjs(withGoogleMap((props) =>
-         <GoogleMap
-            defaultZoom={ 13 }
-            center={{ lat: 55.6760968, lng: 12.5683372 }}>
-         </GoogleMap>
-      ));
+       <GoogleMap
+          defaultZoom={ 14 }
+          center={{ lat: 55.679452, lng: 12.580216999999948 }}>
+
+          {this.state.locations.map((location, index) =>
+             <Marker
+                key={location.index}
+                title={location.title}
+                position={{lat: location.location.lat, lng: location.location.lng}}
+                onClick={props.openWindow}>
+                     {props.location === props.selectedVenue && <InfoWindow
+                       onCloseClick={props.closeWindow}>
+                       <div className="info-window">
+                          <h4>{location.title}</h4>
+                       </div>
+
+                     </InfoWindow>
+                    }
+            )}
+            </Marker>
+          )}
+      </GoogleMap>
+  ));
 
     return (
       <div className="google-map">
@@ -24,7 +48,7 @@ class Map extends Component {
                loadingElement={<div style={{ height: `100%` }} />}
                containerElement={<div style={{ height: `600px`, width: `100%` }} />}
                mapElement={<div style={{ height: `100%` }} />}
-               locations={this.props.locations}
+               locations = {this.props.locations}
             />
          </div>
       </div>
