@@ -7,7 +7,6 @@ class App extends Component {
 
   state = {
     locations: [],
-    selectedLocation: null,
     venues: [],
     selectedVenue: null,
   }
@@ -15,15 +14,19 @@ class App extends Component {
   componentDidMount() {
     fetch('https://api.foursquare.com/v2/venues/search?ll=55.679452,12.580216999999948&intent=browse&radius=10000&query=museum&client_id=0V25KPKE3QMUS3BPCJBUABV5KJMFFD33UQGDFOEGHTJFQF2J&client_secret=332MWGWQZIATESF1GIGOSQX2KI2NRZZRPIPKHJPZJARUN3VC&v=20180802')
     .then(response => response.json())
-    .then((response) => {
+    .then((data) => {
       this.setState({
-        venues: response.response.venues
+        venues: data.response.venues
       })
     })
     .catch((error) => {
-      alert('Error getting data from the FourSquare API')
-      console.log('Error getting data from the FourSquare API')
+      alert('Error getting data from the FourSquare API. Check the key.')
+      console.log('Error getting data from the FourSquare API. Check the key.')
     })
+
+    window.gm_authFailure = () => {
+      alert('Error loading Google Maps. Check the API key.')
+    }
   }
 
   openWindow = (selectedVenue) => {
@@ -41,10 +44,9 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
+      <div className="App" role="main">
         <Map
            locations = {this.state.locations}
-           selectedLocation = {this.state.selectedLocation}
            venues = {this.state.venues}
            selectedVenue = {this.state.selectedVenue}
            openWindow = {this.openWindow}
