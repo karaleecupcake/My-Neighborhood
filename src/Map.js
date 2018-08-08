@@ -5,9 +5,7 @@ import { locations } from './Location';
 class Map extends Component {
 
   state = {
-    locations: locations,
-    venues: [],
-    selectedVenue: null
+    locations: locations
   }
 
   render () {
@@ -20,15 +18,15 @@ class Map extends Component {
           {this.state.locations.map((location, index) =>
              <Marker
                 key={location.index}
+                id={location.id}
                 title={location.title}
                 position={{lat: location.location.lat, lng: location.location.lng}}
                 onClick={props.openWindow}>
                      {props.location === props.selectedVenue && <InfoWindow
-                       onCloseClick={props.closeWindow}>
+                       cnCloseClick={props.closeWindow}>
                        <div className="info-window">
                           <h4>{location.title}</h4>
                        </div>
-
                      </InfoWindow>
                     }
             )}
