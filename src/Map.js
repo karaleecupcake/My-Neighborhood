@@ -25,7 +25,7 @@ class Map extends Component {
                      {props.location === props.selectedVenue && <InfoWindow
                        cnCloseClick={props.closeWindow}>
                        <div className="info-window">
-                          <h4>{location.title}</h4>
+                          <p></h4>
                        </div>
                      </InfoWindow>
                     }
