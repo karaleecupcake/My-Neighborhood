@@ -10,16 +10,14 @@ class App extends Component {
     venues: [],
     selectedVenue: {},
     isOpen: false,
-    address: ''
   }
 
   componentDidMount() {
     fetch('https://api.foursquare.com/v2/venues/search?ll=55.679452,12.580216999999948&intent=browse&radius=10000&query=museum&client_id=0V25KPKE3QMUS3BPCJBUABV5KJMFFD33UQGDFOEGHTJFQF2J&client_secret=332MWGWQZIATESF1GIGOSQX2KI2NRZZRPIPKHJPZJARUN3VC&v=20180802')
     .then(response => response.json())
     .then((data) => {
-      let venues = data.response.venues[0];
       this.setState({
-        address: venues.location.formattedAddress[0]
+        venues: data.response.venues
       })
     })
     .catch((error) => {

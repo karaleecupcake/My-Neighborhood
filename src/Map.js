@@ -15,7 +15,7 @@ class Map extends Component {
           defaultZoom={ 14 }
           center={{ lat: 55.679452, lng: 12.580216999999948 }}>
 
-          {this.state.locations.map((location, index) =>
+          {this.props.venues.map((venue, index) =>
              <Marker
                 key={location.index}
                 id={location.id}
@@ -26,9 +26,12 @@ class Map extends Component {
                   onCloseClick={this.props.closeWindow}>
                   <div className="info-window">
                      <h4>{location.title}</h4>
-                     <p>{this.props.address}</p>
+                     <p>{venue.location.formattedAddress}</p>
                   </div>
               </InfoWindow>
+            )}
+
+
 
             </Marker>
           )}
