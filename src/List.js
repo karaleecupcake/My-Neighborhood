@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 
 class List extends Component {
+  state = {
+    query: '',
+  }
 
+  updateQuery = (query) => {
+    this.setState({ query: query })
+    this.updateQuery(query)
+  }
 
   render () {
 
@@ -16,9 +23,20 @@ class List extends Component {
     ))
 
     return (
-      <ul className="museumList">
-      {venueList}
-      </ul>
+      <div className="search">
+         <input
+            type="text"
+            placeholder="Search for museum"
+            value={this.state.query}
+            onChange={(event) => this.updateQuery(event.target.value)}
+            role="search"
+         />
+         <div className="museumList">
+            <ul>
+               {venueList}
+            </ul>
+         </div>
+      </div>
     );
   }
 }
