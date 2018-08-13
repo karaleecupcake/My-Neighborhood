@@ -7,5 +7,10 @@
 h1 {
   color: #43464B;
   padding-top: 15px;
-  font-family: 'Times New Roman', serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer {
+  font-family: 'Arial', sans-serif;
+  font-size: 12pt;
 }
