@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
-import { locations } from './Location';
 
 class List extends Component {
 
-  state = {
-    locations: locations,
-  }
-
-  const locationList = {this.state.locations.map(location => (
-    <li>
-  )
 
   render () {
-    return (
-      <li>
-      </li>
 
+    const venueList = this.props.venues.map((venue, index) => (
+      <li className= "museum"
+         key={index}
+         onClick={() => {this.props.toggleWindow(index)}}
+         onKeyPress={() => {this.props.toggleWindow(index)}}
+         >
+      {venue.name}
+      </li>
+    ))
+
+    return (
+      <ul className="museumList">
+      {venueList}
+      </ul>
     );
   }
 }
