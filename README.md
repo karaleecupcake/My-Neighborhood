@@ -20,5 +20,6 @@ The service worker only runs in production mode. To start production mode:
 ## Dependencies
 - create-react-app 
 - react-google-maps
-- Google Maps 
+- react-burger-menu
+- Google Maps API
 - FourSquare API 
