@@ -6,11 +6,53 @@
 
 h1 {
   color: #43464B;
-  padding-top: 15px;
+  padding: 15px 0px;
   font-family: 'Roboto', sans-serif;
 }
 
 .footer {
   font-family: 'Arial', sans-serif;
-  font-size: 12pt;
+  font-size: 10pt;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+
+.app {
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.copenhagen-map {
+  width: 75%;
+  float: right;
+}
+
+.search {
+  width: 25%;
+  float: left;
+}
+
+.search input {
+  margin: 0 auto;
+  display: block;
+  padding-bottom: 10px;
+}
+
+.museumList {
+  max-height: 570px;
+  overflow-y: scroll;
+}
+
+ul {
+  list-style: none;
+  padding-left: 1em;
+}
+
+li {
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
 }
