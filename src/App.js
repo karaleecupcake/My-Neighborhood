@@ -40,7 +40,7 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App" role="main">
+      <div className="app" role="main">
         <Map
            venues = {this.state.venues}
            selectedLocation = {this.state.selectedLocation}
