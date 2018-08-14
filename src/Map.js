@@ -18,7 +18,7 @@ class Map extends Component {
                 name={venue.name}
                 position={{lat: venue.location.lat, lng: venue.location.lng}}
                 onClick={() => {this.props.toggleWindow(index)}}
-                 animation={this.props.selectedLocation == index ? window.google.maps.Animation.DROP: null}>
+                 animation={this.props.selectedLocation === index ? window.google.maps.Animation.DROP: null}>
 
                   {this.props.selectedLocation === index && (
                     <InfoWindow
