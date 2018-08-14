@@ -19,13 +19,14 @@ class List extends Component {
          tabIndex={0}
          onClick={() => {this.props.toggleWindow(index)}}
          onKeyPress={() => {this.props.toggleWindow(index)}}
+         role="button"
          >
       {venue.name}
       </li>
     ))
 
     return (
-      <Menu>
+      <Menu noOverlay>
          <div className="search">
             <input
                type="text"
