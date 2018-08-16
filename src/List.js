@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
-import { slide as Menu } from 'react-burger-menu'
+import { slide as Menu } from 'react-burger-menu';
 
 class List extends Component {
   state = {
-    query: '',
+    query: ''
   }
 
   updateQuery = (query) => {
     this.setState({ query: query })
-    this.updateQuery(query)
   }
+
+  filterQuery = (venues, query) => venues.filter(venue => venue.name.toLowerCase().includes(query.toLowerCase()));
 
   render () {
 
-    const venueList = this.props.venues.map((venue, index) => (
-      <li className= "museum"
-         key={index}
-         tabIndex={0}
-         onClick={() => {this.props.toggleWindow(index)}}
-         onKeyPress={() => {this.props.toggleWindow(index)}}
-         role="button"
-         >
-      {venue.name}
-      </li>
-    ))
+    const venueList = this.filterQuery(this.props.venues, this.state.query).map((venue, index) => {
+      return (
+        <li className= "museum"
+           key={venue.id}
+           tabIndex={0}
+           onClick={() => {this.props.toggleWindow(index)}}
+           onKeyPress={() => {this.props.toggleWindow(index)}}
+           role="button"
+           >
+        {venue.name}
+        </li>
+      )
+    })
 
     return (
       <Menu noOverlay>
