@@ -31,7 +31,7 @@ class App extends Component {
   }
 
 // Toogles info window when venue is clicked
-  toggleWindow = selectedVenue => {
+  toggleWindow = (selectedVenue) => {
     this.setState({
       selectedLocation: selectedVenue
     })
