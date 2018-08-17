@@ -81,9 +81,13 @@ li {
   h1 {
     font-size: 20pt;
     text-align: right;
+    padding-left: 75px;
   }
   .bm-burger-button {
     margin-top: -1.75em;
+  }
+  .bm-menu {
+    width: 250px;
   }
   .footer {
     font-size: 8pt;
