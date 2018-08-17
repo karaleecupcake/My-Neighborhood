@@ -40,7 +40,7 @@ class Map extends Component {
     return (
       <div className="google-map">
          <header>
-            <h1>Museums in Copenhagen, Denmark</h1>
+            <h1>Museums in Copenhagen</h1>
          </header>
          <div className="copenhagen-map" role="application">
             <CopenhagenMap
