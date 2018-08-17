@@ -17,7 +17,8 @@ class App extends Component {
     .then(response => response.json())
     .then((data) => {
       this.setState({
-        venues: data.response.venues
+        venues: data.response.venues,
+        filteredVenues: data.response.venues
       })
     })
     .catch((error) => {
