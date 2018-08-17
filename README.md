@@ -13,6 +13,7 @@ The My Neighborhood Project is a single-page web application that displays a map
 ## Service Worker 
 The service worker only runs in production mode. To start production mode after installing the project dependencies:
 - Run `npm run build`
+- Serve the serve with `npm install -g serve`
 - Start production mode with `serve -s build`
 - The project will run on `http://localhost:5000`
 
