@@ -8,6 +8,7 @@ class List extends Component {
 
   updateQuery = (query) => {
     this.setState({ query: query })
+    this.props.updateFilteredVenues(this.filterQuery(this.props.venues, query))
   }
 
   filterQuery = (venues, query) => venues.filter(venue => venue.name.toLowerCase().includes(query.toLowerCase()));
@@ -37,6 +38,7 @@ class List extends Component {
                value={this.state.query}
                onChange={(event) => this.updateQuery(event.target.value)}
                role="search"
+               aria-label="Search for museum by name"
             />
             <div className="museumList">
                <ul>

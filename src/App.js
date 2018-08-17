@@ -7,7 +7,8 @@ class App extends Component {
 
   state = {
     venues: [],
-    selectedVenue: {}
+    selectedVenue: {},
+    filteredVenues: []
   }
 
 // Fetches data for museums from FourSquare and handles errors
@@ -37,18 +38,25 @@ class App extends Component {
     })
   }
 
+  updateFilteredVenues = (filteredVenues) => {
+    this.setState({
+      filteredVenues: filteredVenues
+    })
+  }
+
   render() {
 
     return (
       <div className="app" role="main">
         <Map
-           venues = {this.state.venues}
+           venues = {this.state.filteredVenues}
            selectedLocation = {this.state.selectedLocation}
            toggleWindow = {this.toggleWindow}
         />
         <List
            venues = {this.state.venues}
            toggleWindow = {this.toggleWindow}
+           updateFilteredVenues = {this.updateFilteredVenues}
         />
       </div>
     );
