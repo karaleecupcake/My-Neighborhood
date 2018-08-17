@@ -39,6 +39,7 @@ class App extends Component {
     })
   }
 
+// Updated filtered venues 
   updateFilteredVenues = (filteredVenues) => {
     this.setState({
       filteredVenues: filteredVenues

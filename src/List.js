@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 
 class List extends Component {
+
   state = {
     query: ''
   }
 
+// Updates and filters query
   updateQuery = (query) => {
     this.setState({ query: query })
     this.props.updateFilteredVenues(this.filterQuery(this.props.venues, query))
@@ -14,7 +16,7 @@ class List extends Component {
   filterQuery = (venues, query) => venues.filter(venue => venue.name.toLowerCase().includes(query.toLowerCase()));
 
   render () {
-
+// Displays the list of museums 
     const venueList = this.filterQuery(this.props.venues, this.state.query).map((venue, index) => {
       return (
         <li className= "museum"
@@ -30,6 +32,7 @@ class List extends Component {
     })
 
     return (
+// Uses react-burger-menu to display the list of museums with a hamburger icon
       <Menu noOverlay>
          <div className="search" aria-label="List of museums with search bar" tabIndex={0}>
             <input
