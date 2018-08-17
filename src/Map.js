@@ -23,7 +23,9 @@ class Map extends Component {
                   {this.props.selectedLocation === index && (
                     <InfoWindow
                     onCloseClick={props.onToggleOpen}>
-                    <div className="info-window">
+                    <div className="info-window"
+                    aria-label="Info window"
+                    tabIndex={0}>
                        <h4>{venue.name}</h4>
                        <p>{venue.location.formattedAddress[0]}</p>
                        <p>{venue.location.formattedAddress[1]}</p>
