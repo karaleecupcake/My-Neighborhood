@@ -31,17 +31,19 @@ class List extends Component {
 
     return (
       <Menu noOverlay>
-         <div className="search">
+         <div className="search" aria-label="List of museums with search bar" tabIndex={0}>
             <input
                type="text"
                placeholder="Search for museum"
                value={this.state.query}
                onChange={(event) => this.updateQuery(event.target.value)}
                role="search"
-               aria-label="Search for museum by name"
+               aria-label="Enter name to search for museum"
             />
             <div className="museumList">
-               <ul>
+               <ul
+               role="menu"
+               aria-label="List of museums">
                   {venueList}
                </ul>
             </div>
